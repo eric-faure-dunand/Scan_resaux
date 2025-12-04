@@ -291,7 +291,7 @@ def main():
                         draw_txt(screen, small_font, "Hostname : " + str(node.hostname), BLACK, width, height)
                         draw_txt(screen, small_font, "IP : " + str(node.ip), BLACK, width, height + 15)
                         draw_txt(screen, small_font, "Mac : " + str(node.mac), BLACK, width, height + 30)
-                        draw_txt(screen, small_font, "Debit : " + str(node.debit), BLACK, width, height + 45)
+                        draw_txt(screen, small_font, "Debit : " + (f"{(node.debit/ 1000):.3} MB/s"), BLACK, width, height + 45)
                         draw_txt(screen, small_font, "reliability : " + str(node.reliability), BLACK, width, height + 60)
                         draw_txt(screen, small_font, "Ping : ", BLACK, width, height + 75) 
                         draw_txt(screen, small_font, "failed : " + str(node.total_error) + " / success : " + str(node.total_ping - node.total_error) + " / total : " + str(node.total_ping), BLACK, width, height + 90)

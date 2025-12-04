@@ -510,12 +510,16 @@ tread  252  closed
 tread  253  closed
 tread  254  closed
 192.168.1.1      7c:c1:77:00:04:b0  livebox.home                       
+192.168.1.11     1e:37:09:db:5a:fa  device-737.home                    
 192.168.1.12     7c:10:c9:51:40:5d  desktop-prph7ne.home               
-192.168.1.13     f8:b4:6a:af:bd:59  desktop-prph7ne.home               
+192.168.1.13     94:ff:3c:03:94:6e  DESKTOP-PRPH7NE.home               
+192.168.1.14     00:15:5d:01:63:01  device-740.home                    
+192.168.1.20     a8:93:4a:7e:e5:b1  galaxy-a21s.home                   
 192.168.1.25     84:ba:59:e8:cd:5c  lpt-210-1.home                     
 192.168.1.26     e8:ea:6a:7f:5f:d0  lpt-368-4.home                     
 192.168.1.42     b0:22:7a:33:dd:3d  ebm-compta-1.home                  
 192.168.1.56     dc:4a:3e:7c:ef:05  christophe-pc.home                 
+192.168.1.65     e4:5f:01:be:ac:1c  raspberrypi-1.home                 
 192.168.1.67     dc:4a:3e:65:c5:37  ebm-pc-3.home                      
 192.168.1.117    34:56:fe:fe:9d:d0  switch-ciat-3456fefe9dd0.home      
 192.168.1.120    98:aa:fc:14:03:1b  svn4.home                          
@@ -524,9 +528,40 @@ tread  254  closed
 192.168.1.137    00:11:32:f5:34:95  nas.home                           
 192.168.1.140    00:15:5d:01:63:01  vm-mercure2.home                   
 192.168.1.144    30:e1:71:3f:fd:29  npi3ffd29.home                     
+192.168.1.205    a8:93:4a:7e:e5:b1  BRWA8934A7EE5B1                    
 
 
 GHOST
 
-192.168.1.65                        raspberrypi-1.home                 
-192.168.1.205    a8:93:4a:7e:e5:b1  -                                  
+192.168.1.4      b0:22:7a:33:dd:3d  -                                  
+192.168.1.5      dc:4a:3e:7c:ef:05  -                                  
+192.168.1.6      e4:5f:01:be:ac:1c  -                                  
+192.168.1.8      d4:6e:0e:c8:57:c9  -                                  
+192.168.1.10                        consult1.home                      
+192.168.1.16                        redmi-note-13-pro-5g.home          
+192.168.1.28                        iphone-1.home                      
+192.168.1.30                        dsk-312.home                       
+192.168.1.31                        xiaomi-14t.home                    
+192.168.1.41                        pc-pret-coti.home                  
+192.168.1.48                        nd-aa2408601098.home               
+192.168.1.52                        lpt-espmic-adreas-1.home           
+192.168.1.72                        jp.home                            
+192.168.1.87                        aio-368-4.home                     
+192.168.1.101                       desktop-25nh6fs.home               
+192.168.1.102                       ebm-adm-2.home                     
+192.168.1.103                       oclenovotouten1.home               
+192.168.1.104                       kpaxliberty.home                   
+192.168.1.107                       xiaomi-14t-1.home                  
+192.168.1.108                       desktop-9ql64s2-1.home             
+192.168.1.113                       aio-246-2.home                     
+192.168.1.114                       aio-246-1.home                     
+192.168.1.115                       aio-246.home                       
+192.168.1.116                       dsk-246-4.home                     
+192.168.1.118                       lpt-246-2.home                     
+192.168.1.121                       dsk-394.home                       
+192.168.1.124                       udct-22.home                       
+192.168.1.126                       venus.home                         
+192.168.1.138                       saturne-2025.home                  
+192.168.1.148                       strelecpe.home                     
+192.168.1.149                       dsk-372.home                       
+192.168.1.150                       device-301.home                    

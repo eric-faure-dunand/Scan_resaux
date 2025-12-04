@@ -5,6 +5,7 @@ import subprocess, time
 import platform
 import re
 import os
+import sys
 
 park = []
 ghost = []
@@ -161,9 +162,13 @@ def main():
     ghost.clear()
     host = (get_ip()).rsplit('.', 1)[0] + "."
     path = os.path.dirname(os.path.abspath(__file__)) + "/log/logscan.txt"
+    if not os.path.exists(os.path.dirname(os.path.abspath(__file__)) + "/log"):
+        os.makedirs(os.path.dirname(os.path.abspath(__file__)) + "/log")
     log = open(path, "w")
     if not log:
         log = open(path, "x")
+    if not log:
+        log = sys.stdout
     treads_array = create_ping_thread(254, host)
 
     for i in range(len(treads_array)):

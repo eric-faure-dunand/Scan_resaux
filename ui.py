@@ -69,7 +69,7 @@ def main():
     EscapeRect.SetOverlay(True, GREEN, OutlineSize=1)
     EnterRect = Button((WIDTH / 2) - ((WIDTH / 20) - (WIDTH / 10)), (HEIGHT / 2) - ((HEIGHT / 20) - HEIGHT / 10), WIDTH / 10, HEIGHT / 10, GREY, message="Quit [ENTER]", font=small_font, OutlineSize=2)
     EnterRect.SetOverlay(True, RED, OutlineSize=1)
-    ScanButton = Button((WIDTH / 2) - (WIDTH / 10) / 2, (HEIGHT / 2) - (HEIGHT / 10) / 2, WIDTH / 10, HEIGHT / 10, GREY, OutlineSize=2, message="Scan", font=font)
+    ScanButton = Button((WIDTH / 2) - (WIDTH / 10) / 2, (HEIGHT / 2) - (HEIGHT / 10) / 2, WIDTH / 10, HEIGHT / 10, MID_DARK_GREY, OutlineSize=2, message="Scan", font=font)
     ScanButton.SetOverlay(True,LIGHT_GREY, WHITE, 1)
 
     ShawllAllStats = False
@@ -110,6 +110,7 @@ def main():
                     ScanThread = threading.Thread(target=scan.main, args=())
                     scaning = True
                     ScanButton.NewText("Scanning ...", font)
+                    ScanButton.SetColor(GREY)
                     ScanThread.start()
                 
                 if event.type == pygame.MOUSEWHEEL :
@@ -201,6 +202,7 @@ def main():
             ScanThread.join()
             scaning = False
             ScanButton.NewText("Scan", font)
+            ScanButton.SetColor(MID_DARK_GREY)
             CreateDeviceGraph()
 
         if state == "graph" and not want_quite:

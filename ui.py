@@ -48,16 +48,16 @@ def main():
     PaddingTop = 0
 
     show_debit = True
-    Button_ShowDebit = Button(5, 5, WIDTH / 15, HEIGHT / 20, GREEN, OutlineSize=1, message="debit : ON", font=small_font)
+    Button_ShowDebit = Button(5, 5, WIDTH / 15, HEIGHT / 20, MID_DARK_GREY, OutlineSize=1, message="debit : ON", font=small_font)
     Button_ShowDebit.SetOverlay(Overlay=True, OutlineColor=WHITE, TextColor=WHITE)
     show_ipv4 = False
-    Button_ShowIpv4 = Button(5, 5 * 2 + HEIGHT / 20, WIDTH / 15, HEIGHT / 20, RED, OutlineSize=1, message="IPv4 : OFF", font=small_font)
+    Button_ShowIpv4 = Button(5, 5 * 2 + HEIGHT / 20, WIDTH / 15, HEIGHT / 20, MID_DARK_GREY, OutlineSize=1, message="IPv4 : OFF", font=small_font)
     Button_ShowIpv4.SetOverlay(Overlay=True, OutlineColor=WHITE, TextColor=WHITE)
     show_Mac = False
-    Button_ShowMac = Button(5, 5 * 3 + (HEIGHT / 20) * 2, WIDTH / 15, HEIGHT / 20, RED, OutlineSize=1, message="Mac : OFF", font=small_font)
+    Button_ShowMac = Button(5, 5 * 3 + (HEIGHT / 20) * 2, WIDTH / 15, HEIGHT / 20, MID_DARK_GREY, OutlineSize=1, message="Mac : OFF", font=small_font)
     Button_ShowMac.SetOverlay(Overlay=True, OutlineColor=WHITE, TextColor=WHITE)
     show_reliability = False
-    Button_ShoweReliability = Button(5, 5 * 4 + (HEIGHT / 20) * 3, WIDTH / 12, HEIGHT / 20, RED, OutlineSize=1, message="Fiabilité : OFF", font=small_font)
+    Button_ShoweReliability = Button(5, 5 * 4 + (HEIGHT / 20) * 3, WIDTH / 12, HEIGHT / 20, MID_DARK_GREY, OutlineSize=1, message="Fiabilité : OFF", font=small_font)
     Button_ShoweReliability.SetOverlay(Overlay=True, OutlineColor=WHITE, TextColor=WHITE)
 
     Button_PingEveryPLus = Button(170, HEIGHT - 20, 15, 15, DARK_GREY, OutlineSize=1, message="+", font=small_font)
@@ -129,35 +129,23 @@ def main():
                 if (Button_ShowDebit.PointIsIn(mx, my) and event.type == pygame.MOUSEBUTTONUP and event.button == 1):
                     show_debit = False if show_debit else True
                     if show_debit:
-                        Button_ShowDebit.SetColor(GREEN)
                         Button_ShowDebit.NewText("Debit : ON")
-                        Button_ShowDebit.SetOverlay(True, OverlayColor=GREEN)
                     else :
-                        Button_ShowDebit.SetColor(RED)
                         Button_ShowDebit.NewText("Debit : OFF")
-                        Button_ShowDebit.SetOverlay(True, OverlayColor=RED)
 
                 if (Button_ShowIpv4.PointIsIn(mx, my) and event.type == pygame.MOUSEBUTTONUP and event.button == 1):
                     show_ipv4 = False if show_ipv4 else True
                     if show_ipv4:
-                        Button_ShowIpv4.SetColor(GREEN)
                         Button_ShowIpv4.NewText("IPv4 : ON")
-                        Button_ShowIpv4.SetOverlay(True, OverlayColor=GREEN)
                     else :
-                        Button_ShowIpv4.SetColor(RED)
                         Button_ShowIpv4.NewText("IPv4 : OFF")
-                        Button_ShowIpv4.SetOverlay(True, OverlayColor=RED)
 
                 if (Button_ShowMac.PointIsIn(mx, my) and event.type == pygame.MOUSEBUTTONUP and event.button == 1):
                     show_Mac = False if show_Mac else True
                     if show_Mac:
-                        Button_ShowMac.SetColor(GREEN)
                         Button_ShowMac.NewText("Mac : ON")
-                        Button_ShowMac.SetOverlay(True, OverlayColor=GREEN)
                     else :
-                        Button_ShowMac.SetColor(RED)
                         Button_ShowMac.NewText("Mac : OFF")
-                        Button_ShowMac.SetOverlay(True, OverlayColor=RED)
                 
                 if (Button_ShoweReliability.PointIsIn(mx, my) and event.type == pygame.MOUSEBUTTONUP and event.button == 1):
                     show_reliability = False if show_reliability else True

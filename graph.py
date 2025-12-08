@@ -42,7 +42,7 @@ class Node():
 
     def UpdatePing(self, debit, nb_div, error):
         if error:
-            if self.nb_error > 3:
+            if self.nb_error >= 2:
                 self.OnlineStatus = False
                 self.total_error += 1
                 self.total_ping += 1

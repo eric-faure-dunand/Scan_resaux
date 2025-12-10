@@ -108,83 +108,84 @@ def main():
                     ScanThread.start()
 
             if state == "graph":
-                if (ScanButton.PointIsIn(mx, my) and event.type == pygame.MOUSEBUTTONUP and event.button == 1) and not ScanThread.is_alive():
-                    ScanThread = threading.Thread(target=scan.main, args=())
-                    scaning = True
-                    ScanButton.NewText("Scanning ...", font)
-                    ScanButton.SetColor(GREY)
-                    ScanThread.start()
-                
-                if event.type == pygame.MOUSEWHEEL :
-                    radius += event.y * 15
-                    if radius < 200:
-                        radius = 200
-                    elif radius > 600:
-                        radius = 600
-                    MoovDeviceGraph()
+                if not want_quite:
+                    if (ScanButton.PointIsIn(mx, my) and event.type == pygame.MOUSEBUTTONUP and event.button == 1) and not ScanThread.is_alive() :
+                        ScanThread = threading.Thread(target=scan.main, args=())
+                        scaning = True
+                        ScanButton.NewText("Scanning ...", font)
+                        ScanButton.SetColor(GREY)
+                        ScanThread.start()
+                    
+                    if event.type == pygame.MOUSEWHEEL :
+                        radius += event.y * 15
+                        if radius < 200:
+                            radius = 200
+                        elif radius > 600:
+                            radius = 600
+                        MoovDeviceGraph()
 
-                if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
-                    radius = 400
-                    PaddingLeft = 0
-                    PaddingTop = 0
-                    MoovDeviceGraph()
+                    if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
+                        radius = 400
+                        PaddingLeft = 0
+                        PaddingTop = 0
+                        MoovDeviceGraph()
 
-                if (Button_ShowDebit.PointIsIn(mx, my) and event.type == pygame.MOUSEBUTTONUP and event.button == 1):
-                    show_debit = False if show_debit else True
-                    if show_debit:
-                        Button_ShowDebit.SetColor(LIGHT_GREY)
-                        Button_ShowDebit.NewText("Debit : ON")
-                        Button_ShowDebit.SetOverlay(True, OverlayColor=LIGHT_GREY)
-                    else :
-                        Button_ShowDebit.SetColor(MID_DARK_GREY)
-                        Button_ShowDebit.NewText("Debit : OFF")
-                        Button_ShowDebit.SetOverlay(True, OverlayColor=MID_DARK_GREY)
+                    if (Button_ShowDebit.PointIsIn(mx, my) and event.type == pygame.MOUSEBUTTONUP and event.button == 1):
+                        show_debit = False if show_debit else True
+                        if show_debit:
+                            Button_ShowDebit.SetColor(LIGHT_GREY)
+                            Button_ShowDebit.NewText("Debit : ON")
+                            Button_ShowDebit.SetOverlay(True, OverlayColor=LIGHT_GREY)
+                        else :
+                            Button_ShowDebit.SetColor(MID_DARK_GREY)
+                            Button_ShowDebit.NewText("Debit : OFF")
+                            Button_ShowDebit.SetOverlay(True, OverlayColor=MID_DARK_GREY)
 
-                if (Button_ShowIpv4.PointIsIn(mx, my) and event.type == pygame.MOUSEBUTTONUP and event.button == 1):
-                    show_ipv4 = False if show_ipv4 else True
-                    if show_ipv4:
-                        Button_ShowIpv4.SetColor(LIGHT_GREY)
-                        Button_ShowIpv4.NewText("IPv4 : ON")
-                        Button_ShowIpv4.SetOverlay(True, OverlayColor=LIGHT_GREY)
-                    else :
-                        Button_ShowIpv4.SetColor(MID_DARK_GREY)
-                        Button_ShowIpv4.NewText("IPv4 : OFF")
-                        Button_ShowIpv4.SetOverlay(True, OverlayColor=MID_DARK_GREY)
+                    if (Button_ShowIpv4.PointIsIn(mx, my) and event.type == pygame.MOUSEBUTTONUP and event.button == 1):
+                        show_ipv4 = False if show_ipv4 else True
+                        if show_ipv4:
+                            Button_ShowIpv4.SetColor(LIGHT_GREY)
+                            Button_ShowIpv4.NewText("IPv4 : ON")
+                            Button_ShowIpv4.SetOverlay(True, OverlayColor=LIGHT_GREY)
+                        else :
+                            Button_ShowIpv4.SetColor(MID_DARK_GREY)
+                            Button_ShowIpv4.NewText("IPv4 : OFF")
+                            Button_ShowIpv4.SetOverlay(True, OverlayColor=MID_DARK_GREY)
 
-                if (Button_ShowMac.PointIsIn(mx, my) and event.type == pygame.MOUSEBUTTONUP and event.button == 1):
-                    show_Mac = False if show_Mac else True
-                    if show_Mac:
-                        Button_ShowMac.SetColor(LIGHT_GREY)
-                        Button_ShowMac.NewText("Mac : ON")
-                        Button_ShowMac.SetOverlay(True, OverlayColor=LIGHT_GREY)
-                    else :
-                        Button_ShowMac.SetColor(MID_DARK_GREY)
-                        Button_ShowMac.NewText("Mac : OFF")
-                        Button_ShowMac.SetOverlay(True, OverlayColor=MID_DARK_GREY)
-                
-                if (Button_ShoweReliability.PointIsIn(mx, my) and event.type == pygame.MOUSEBUTTONUP and event.button == 1):
-                    show_reliability = False if show_reliability else True
-                    if show_reliability:
-                        Button_ShoweReliability.SetColor(LIGHT_GREY)
-                        Button_ShoweReliability.NewText("Fiabilité : ON")
-                        Button_ShoweReliability.SetOverlay(True, OverlayColor=LIGHT_GREY)
-                    else :
-                        Button_ShoweReliability.SetColor(MID_DARK_GREY)
-                        Button_ShoweReliability.NewText("Fiabilité : OFF")
-                        Button_ShoweReliability.SetOverlay(True, OverlayColor=MID_DARK_GREY)
-                
-                if Button_PingEveryPLus.PointIsIn(mx, my) and event.type == pygame.MOUSEBUTTONUP and event.button == 1:
-                    ping_evry += 10 if ping_evry < 120 else 0
-                if Button_PingEveryMoins.PointIsIn(mx, my) and event.type == pygame.MOUSEBUTTONUP and event.button == 1:
-                    ping_evry -= 10 if ping_evry > 10 else 0
+                    if (Button_ShowMac.PointIsIn(mx, my) and event.type == pygame.MOUSEBUTTONUP and event.button == 1):
+                        show_Mac = False if show_Mac else True
+                        if show_Mac:
+                            Button_ShowMac.SetColor(LIGHT_GREY)
+                            Button_ShowMac.NewText("Mac : ON")
+                            Button_ShowMac.SetOverlay(True, OverlayColor=LIGHT_GREY)
+                        else :
+                            Button_ShowMac.SetColor(MID_DARK_GREY)
+                            Button_ShowMac.NewText("Mac : OFF")
+                            Button_ShowMac.SetOverlay(True, OverlayColor=MID_DARK_GREY)
+                    
+                    if (Button_ShoweReliability.PointIsIn(mx, my) and event.type == pygame.MOUSEBUTTONUP and event.button == 1):
+                        show_reliability = False if show_reliability else True
+                        if show_reliability:
+                            Button_ShoweReliability.SetColor(LIGHT_GREY)
+                            Button_ShoweReliability.NewText("Fiabilité : ON")
+                            Button_ShoweReliability.SetOverlay(True, OverlayColor=LIGHT_GREY)
+                        else :
+                            Button_ShoweReliability.SetColor(MID_DARK_GREY)
+                            Button_ShoweReliability.NewText("Fiabilité : OFF")
+                            Button_ShoweReliability.SetOverlay(True, OverlayColor=MID_DARK_GREY)
+                    
+                    if Button_PingEveryPLus.PointIsIn(mx, my) and event.type == pygame.MOUSEBUTTONUP and event.button == 1:
+                        ping_evry += 10 if ping_evry < 120 else 0
+                    if Button_PingEveryMoins.PointIsIn(mx, my) and event.type == pygame.MOUSEBUTTONUP and event.button == 1:
+                        ping_evry -= 10 if ping_evry > 10 else 0
 
-                if CloseAllStats.PointIsIn(mx, my) and event.type == pygame.MOUSEBUTTONUP and event.button == 1:
-                    ShawllAllStats = False
+                    if CloseAllStats.PointIsIn(mx, my) and event.type == pygame.MOUSEBUTTONUP and event.button == 1:
+                        ShawllAllStats = False
 
-                for node in device_tab:
-                   if node.button.PointIsIn(mx, my) and event.type == pygame.MOUSEBUTTONUP and event.button == 1:
-                       ShawllAllStats = True
-                       mactoshaw = node.mac
+                    for node in device_tab:
+                        if node.button.PointIsIn(mx, my) and event.type == pygame.MOUSEBUTTONUP and event.button == 1:
+                            ShawllAllStats = True
+                            mactoshaw = node.mac
 
         if state == "scaning" :
             if ScanThread.is_alive() :
@@ -254,7 +255,7 @@ def main():
                 padding_ip4 = 30 if show_debit else 15 
                 padding_ip6 = (45 if show_debit and show_ipv4 else (30 if show_ipv4 or show_debit else 15))
                 for device in device_tab:
-                    device.button.Draw(screen, IgnoreOvelay= True if ScanThread.is_alive() else False, DrawImagebyId= ["0"] if not device.OnlineStatus else [])
+                    device.button.Draw(screen, IgnoreOvelay= False if (not ScanThread.is_alive() and not want_quite) else True, DrawImagebyId= ["0"] if not device.OnlineStatus else [])
                     on = device.button.PointIsIn(mx, my)
                     pos = device.button.GetTextPosition()
                     relativ_pos = device.button.GetTextRelativePosition()
@@ -287,7 +288,7 @@ def main():
                                 draw_txt(screen, small_font, device.mac, BLACK if on and not want_quite else DARK_GREY, pos[0], pos[1] + padding_ip6)
 
                 if ShawllAllStats:
-                    CloseAllStats.Draw(screen, IgnoreOvelay= True if ScanThread.is_alive() else False)
+                    CloseAllStats.Draw(screen, IgnoreOvelay= False if (not ScanThread.is_alive() and not want_quite) else True)
                     height = HEIGHT - 150
                     node = next((n for n in device_tab if n.mac == mactoshaw), None)
                     width = WIDTH - ((node.Midtxt / 2) * 10) - 5
@@ -304,14 +305,14 @@ def main():
                         draw_txt(screen, small_font, str(node.adresse), BLACK, width, height + 135)
 
 
-                ScanButton.Draw(screen, IgnoreOvelay= True if ScanThread.is_alive() else False)
-                Button_ShowDebit.Draw(screen, IgnoreOvelay= True if ScanThread.is_alive() else False)
-                Button_ShowIpv4.Draw(screen, IgnoreOvelay= True if ScanThread.is_alive() else False)
-                Button_ShowMac.Draw(screen, IgnoreOvelay= True if ScanThread.is_alive() else False)
-                Button_ShoweReliability.Draw(screen, IgnoreOvelay= True if ScanThread.is_alive() else False)
+                ScanButton.Draw(screen, IgnoreOvelay= False if (not ScanThread.is_alive() and not want_quite) else True)
+                Button_ShowDebit.Draw(screen, IgnoreOvelay= False if (not ScanThread.is_alive() and not want_quite) else True)
+                Button_ShowIpv4.Draw(screen, IgnoreOvelay= False if (not ScanThread.is_alive() and not want_quite) else True)
+                Button_ShowMac.Draw(screen, IgnoreOvelay= False if (not ScanThread.is_alive() and not want_quite) else True)
+                Button_ShoweReliability.Draw(screen, IgnoreOvelay= False if (not ScanThread.is_alive() and not want_quite) else True)
                 
-                Button_PingEveryPLus.Draw(screen, IgnoreOvelay= True if ScanThread.is_alive() else False)
-                Button_PingEveryMoins.Draw(screen, IgnoreOvelay= True if ScanThread.is_alive() else False)
+                Button_PingEveryPLus.Draw(screen, IgnoreOvelay= False if (not ScanThread.is_alive() and not want_quite) else True)
+                Button_PingEveryMoins.Draw(screen, IgnoreOvelay= False if (not ScanThread.is_alive() and not want_quite) else True)
                 draw_txt(screen, small_font, f"Update debit every      {ping_evry}      secondes", BLACK, 160, HEIGHT - 10)
                 
             case _:

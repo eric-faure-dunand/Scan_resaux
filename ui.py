@@ -190,7 +190,7 @@ def main():
                         if node.button.PointIsIn(mx, my) and event.type == pygame.MOUSEBUTTONUP and event.button == 1:
                             ShawllAllStats = True
                             mactoshaw = node.mac
-                            node.button.SetTextColor(BLUE, DARK_BLUE)
+                            node.button.SetTextColor(DARK_BLUE, BLUE)
 
         if state == "scaning" :
             if ScanThread.is_alive() :

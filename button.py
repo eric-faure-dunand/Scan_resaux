@@ -125,6 +125,11 @@ class Button():
         if self.font:
             self.text = self.font.render(message, True, self.TextColor)
 
+    def SetTextColor(self, NewColor, Ovelraycolor=None):
+        self.TextColor = NewColor
+        if Ovelraycolor :
+            self.OverlayTextColor = Ovelraycolor
+
     def GetCenter(self):
         return(self.left + (self.width / 2), self.top + (self.height / 2))
 

@@ -181,16 +181,19 @@ def main():
 
                     if CloseAllStats.PointIsIn(mx, my) and event.type == pygame.MOUSEBUTTONUP and event.button == 1:
                         ShawllAllStats = False
-                        for node in device_tab:
-                            if node.mac == mactoshaw:
-                                node.button.SetTextColor(DARK_GREY, BLACK)
+                        disablenodeColor()
 
                     for node in device_tab:
                         if node.button.PointIsIn(mx, my) and event.type == pygame.MOUSEBUTTONUP and event.button == 1:
+                            disablenodeColor()
                             ShawllAllStats = True
                             mactoshaw = node.mac
                             node.button.SetTextColor(DARK_BLUE, BLUE)
 
+        def disablenodeColor():
+            for node in device_tab:
+                if node.mac == mactoshaw:
+                    node.button.SetTextColor(DARK_GREY, BLACK)
         if state == "scaning" :
             if ScanThread.is_alive() :
                 scaning = True
@@ -272,7 +275,7 @@ def main():
                                 draw_txt(screen, small_font, f"{device.reliability}%", on_color if on and not want_quite else color, GlobalBounds[0] + (GlobalBounds[2] / 2), GlobalBounds[1] + GlobalBounds[3] + padding_debit)
                             case "under":
                                 draw_txt(screen, small_font, f"{device.reliability}%", on_color if on and not want_quite else color, GlobalBounds[0] + (GlobalBounds[2] / 2), GlobalBounds[1] - padding_debit)
-                    if mactoshaw == device.mac:
+                    if mactoshaw == device.mac and ShawllAllStats:
                         txt_color = BLUE if on and not want_quite else DARK_BLUE
                     else:
                         txt_color = BLACK if on and not want_quite else DARK_GREY

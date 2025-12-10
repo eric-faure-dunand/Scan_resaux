@@ -181,10 +181,9 @@ def main():
 
                     if CloseAllStats.PointIsIn(mx, my) and event.type == pygame.MOUSEBUTTONUP and event.button == 1:
                         ShawllAllStats = False
-                        if mactoshaw :
-                            for node in device_tab:
-                                if node.mac == mactoshaw:
-                                    node.button.SetTextColor(DARK_GREY, BLACK)
+                        for node in device_tab:
+                            if node.mac == mactoshaw:
+                                node.button.SetTextColor(DARK_GREY, BLACK)
 
                     for node in device_tab:
                         if node.button.PointIsIn(mx, my) and event.type == pygame.MOUSEBUTTONUP and event.button == 1:

@@ -80,11 +80,6 @@ def main():
 
     while True:
         mx, my = pygame.mouse.get_pos()
-        w, h = screen.get_size()
-        if w != WIDTH or h != HEIGHT:
-            WIDTH = w
-            HEIGHT = h
-            surface = pygame.Surface((WIDTH, HEIGHT), pygame.SRCALPHA)
         screen.fill(WHITE)
         surface.fill("#ffffff00")
 

@@ -25,6 +25,7 @@ def GetColorByReliability(reliability: int):
 def main():
     pygame.init()
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
+    surface = pygame.Surface((WIDTH, HEIGHT), pygame.SRCALPHA)
     pygame.display.set_caption("Scan reseau")
     clock = pygame.time.Clock()
     cmpt_tick = 0
@@ -79,6 +80,7 @@ def main():
 
     while True:
         screen.fill(WHITE)
+        surface.fill("#ffffff00")
         mx, my = pygame.mouse.get_pos()
 
         for event in pygame.event.get():
@@ -314,10 +316,12 @@ def main():
                 
             case _:
                 screen.fill(GREY)
-                draw_txt(screen, font, "ERROR : THIS SCREEN IS NOT ABEL TO BE SHAW. PLEASE CLOSE AND RE-OPEN \'SCAN RESEAU\'", BLACK, WIDTH /2, HEIGHT /2)
+                draw_txt(screen, font, "ERROR : THIS screen IS NOT ABEL TO BE SHAW. PLEASE CLOSE AND RE-OPEN \'SCAN RESEAU\'", BLACK, WIDTH /2, HEIGHT /2)
 
         if want_quite:
-            #pygame.draw.rect(screen, "#FFFFFF50", pygame.Rect(0, 0, WIDTH, HEIGHT))
+            pygame.draw.rect(surface, "#FFFFFF68", pygame.Rect(0, 0, WIDTH, HEIGHT))
+            screen.blit(surface, (0, 0))
+            surface.fill("#ffffff00")
             pygame.draw.rect(screen, LIGHT_GREY, pygame.Rect((WIDTH / 2) - (WIDTH / 5), (HEIGHT / 2) - (HEIGHT / 5), WIDTH / 2.5, HEIGHT / 2.5))
             pygame.draw.rect(screen, BLACK, pygame.Rect((WIDTH / 2) - (WIDTH / 5), (HEIGHT / 2) - (HEIGHT / 5), WIDTH / 2.5, HEIGHT / 2.5), 2)
             draw_txt(screen, font, "Are you sure you want to quit Scan Reseau", BLACK, (WIDTH / 2), (HEIGHT / 2) - (HEIGHT / 10))
@@ -350,7 +354,6 @@ def main():
             for d in device_tab:
                 debit, nbdiv, error = scan.AdjustMoyenneDebit(d.ip, d.debit, d.ndiv)
                 d.UpdatePing(debit, nbdiv, error)
-
 
         pygame.display.flip()
         clock.tick(60)

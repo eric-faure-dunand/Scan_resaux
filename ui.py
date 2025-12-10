@@ -274,24 +274,28 @@ def main():
                                 draw_txt(screen, small_font, f"{device.reliability}%", on_color if on and not want_quite else color, GlobalBounds[0] + (GlobalBounds[2] / 2), GlobalBounds[1] + GlobalBounds[3] + padding_debit)
                             case "under":
                                 draw_txt(screen, small_font, f"{device.reliability}%", on_color if on and not want_quite else color, GlobalBounds[0] + (GlobalBounds[2] / 2), GlobalBounds[1] - padding_debit)
+                    if mactoshaw == device.mac:
+                        txt_color = BLUE if on and not want_quite else DARK_BLUE
+                    else:
+                        txt_color = BLACK if on and not want_quite else DARK_GREY
                     if show_debit:
                         match relativ_pos:
                             case "over":
-                                draw_txt(screen, small_font, (f"{(device.debit/ 1000):.3} MB/s") if device.debit else "connextion error", BLACK if on and not want_quite else DARK_GREY, pos[0], pos[1] - padding_debit)
+                                draw_txt(screen, small_font, (f"{(device.debit/ 1000):.3} MB/s") if device.debit else "connextion error", txt_color, pos[0], pos[1] - padding_debit)
                             case "under":
-                                draw_txt(screen, small_font, (f"{(device.debit/ 1000):.3} MB/s") if device.debit else "connextion error", BLACK if on and not want_quite else DARK_GREY, pos[0], pos[1] + padding_debit)
+                                draw_txt(screen, small_font, (f"{(device.debit/ 1000):.3} MB/s") if device.debit else "connextion error", txt_color, pos[0], pos[1] + padding_debit)
                     if show_ipv4:
                         match relativ_pos:
                             case "over":
-                                draw_txt(screen, small_font, device.ip, BLACK if on and not want_quite else DARK_GREY, pos[0], pos[1] - padding_ip4)
+                                draw_txt(screen, small_font, device.ip, txt_color, pos[0], pos[1] - padding_ip4)
                             case "under":
-                                draw_txt(screen, small_font, device.ip, BLACK if on and not want_quite else DARK_GREY, pos[0], pos[1] + padding_ip4)
+                                draw_txt(screen, small_font, device.ip, txt_color, pos[0], pos[1] + padding_ip4)
                     if show_Mac:
                         match relativ_pos:
                             case "over":
-                                draw_txt(screen, small_font, device.mac, BLACK if on and not want_quite else DARK_GREY, pos[0], pos[1] - padding_ip6)
+                                draw_txt(screen, small_font, device.mac, txt_color, pos[0], pos[1] - padding_ip6)
                             case "under":
-                                draw_txt(screen, small_font, device.mac, BLACK if on and not want_quite else DARK_GREY, pos[0], pos[1] + padding_ip6)
+                                draw_txt(screen, small_font, device.mac, txt_color, pos[0], pos[1] + padding_ip6)
 
                 if ShawllAllStats:
                     CloseAllStats.Draw(screen, IgnoreOvelay= False if (not ScanThread.is_alive() and not want_quite) else True)

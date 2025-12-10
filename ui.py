@@ -181,11 +181,17 @@ def main():
 
                     if CloseAllStats.PointIsIn(mx, my) and event.type == pygame.MOUSEBUTTONUP and event.button == 1:
                         ShawllAllStats = False
+                        for node in device_tab:
+                            if node.mac == mactoshaw:
+                                node.button.SetTextColor(DARK_GREY)
+                                node.button.setOverlayTextColor(BLACK)
 
                     for node in device_tab:
                         if node.button.PointIsIn(mx, my) and event.type == pygame.MOUSEBUTTONUP and event.button == 1:
                             ShawllAllStats = True
                             mactoshaw = node.mac
+                            node.button.SetTextColor(BLUE)
+                            node.button.setOverlayTextColor(DARK_BLUE)
 
         if state == "scaning" :
             if ScanThread.is_alive() :

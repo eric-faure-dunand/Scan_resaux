@@ -241,7 +241,7 @@ def main():
 
         match state:
             case "menu" :
-                screen.fill(DARK_GREY)
+                screen.fill(GREY)
 
                 ScanButton.Draw(screen, IgnoreOvelay=want_quite)
 

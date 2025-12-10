@@ -191,7 +191,7 @@ def main():
                             ShawllAllStats = True
                             mactoshaw = node.mac
                             node.button.SetTextColor(BLUE)
-                            node.button.setOverlayTextColor(DARK_BLUE)
+                            node.button.setOverlay(True, TextColor=DARK_BLUE)
 
         if state == "scaning" :
             if ScanThread.is_alive() :

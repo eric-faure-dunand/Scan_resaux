@@ -61,9 +61,9 @@ def main():
     Button_ShoweReliability = Button(5, 5 * 4 + (HEIGHT / 20) * 3, WIDTH / 12, HEIGHT / 20, MID_DARK_GREY, OutlineSize=1, message="Fiabilité : OFF", font=small_font)
     Button_ShoweReliability.SetOverlay(Overlay=True, OutlineColor=WHITE, TextColor=WHITE)
 
-    Button_PingEveryPLus = Button(170, HEIGHT - 20, 15, 15, DARK_GREY, OutlineSize=1, message="+", font=small_font)
+    Button_PingEveryPLus = Button(245, HEIGHT - 20, 15, 15, DARK_GREY, OutlineSize=1, message="+", font=small_font)
     Button_PingEveryPLus.SetOverlay(True, LIGHT_GREY, BLACK, 2, BLACK)
-    Button_PingEveryMoins = Button(215, HEIGHT - 20, 15, 15, DARK_GREY, OutlineSize=1, message="-", font=small_font)
+    Button_PingEveryMoins = Button(290, HEIGHT - 20, 15, 15, DARK_GREY, OutlineSize=1, message="-", font=small_font)
     Button_PingEveryMoins.SetOverlay(True, LIGHT_GREY, BLACK, 2, BLACK)
 
     EscapeRect = Button((WIDTH / 2) - ((WIDTH / 20) + WIDTH / 10), (HEIGHT / 2) - ((HEIGHT / 20) - HEIGHT / 10), WIDTH / 10, HEIGHT / 10, GREY, message="Cancel [ESCAPE]", font=small_font, OutlineSize=2)
@@ -324,7 +324,8 @@ def main():
                 
                 Button_PingEveryPLus.Draw(screen, IgnoreOvelay= False if (not ScanThread.is_alive() and not want_quite) else True)
                 Button_PingEveryMoins.Draw(screen, IgnoreOvelay= False if (not ScanThread.is_alive() and not want_quite) else True)
-                draw_txt(screen, small_font, f"Update debit every      {ping_evry}      secondes", BLACK, 160, HEIGHT - 10)
+                draw_txt(screen, small_font, f"Actualise le debit toute les      {ping_evry}      secondes", BLACK, 200, HEIGHT - 10)
+
                 
             case _:
                 screen.fill(GREY)
